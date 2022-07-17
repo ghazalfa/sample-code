@@ -2,8 +2,10 @@ import java.util.HashMap;
 import java.util.HashSet;
 
 public class DNA {
-    private String dnaSeq;
 
+
+    private String dnaSeq;
+    HashMap<String, Double> chemicals;
     public DNA(String seq){
         this.dnaSeq = seq;
     }
@@ -33,29 +35,38 @@ public class DNA {
         return mutated;
     }
 
-    private static HashMap<String, Double> chemicals (String chemical, double concentration){
-        HashMap<String, Double> chemicals = new HashMap<>();
+    DNA () {
+        chemicals = new HashMap<>();
 
-        //adds the chemical and concentration that was inputted into the parameters as a ..
-        // ..new key and value for the HashMap
-        chemicals.put(chemical,concentration);
+    }
 
-        // below was used to trasnverse through hashmap to ensure method was working properly
-        //for (String key : chemicals.keySet()) {
-            //System.out.println(key + chemicals.get(key));
-        //}
-        return chemicals;
+    public void addToMap (String chem, double conc) {
+        chemicals.put(chem,conc);
+        System.out.println(chemicals);
+
     }
 
 
-    private static HashSet<String> SurroundingMolecules (String molecule){
-        HashSet <String> SurroundingMolecules = new HashSet<>();
 
-        //the molecule that was inputted into parameters is added to HashSet named SurroundingMolecules
-        SurroundingMolecules.add(molecule);
 
-        //Hashset is returned
-        return SurroundingMolecules;
+
+
+    public static void main (String[] args) {
+
+        DNA hashmap = new DNA();
+        String chem1 = "lactate";
+        String chem2 = "glucose";
+        Double conc1 = 5.2;
+        Double conc2 = 3.2;
+
+        addToMap(chem1, conc1);
+
+
+
+
+
+
+
 
     }
 
