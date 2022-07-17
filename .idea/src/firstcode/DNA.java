@@ -5,7 +5,7 @@ public class DNA {
 
 
     private String dnaSeq;
-    HashMap<String, Double> chemicals;
+    static HashMap<String, Double> chemicals;
     public DNA(String seq){
         this.dnaSeq = seq;
     }
@@ -35,37 +35,28 @@ public class DNA {
         return mutated;
     }
 
-    DNA () {
+    DNA(String chem, double conc){
         chemicals = new HashMap<>();
-
-    }
-
-    public void addToMap (String chem, double conc) {
         chemicals.put(chem,conc);
-        System.out.println(chemicals);
 
     }
 
-
+    public static void fillMap(String chem, double conc){
+        chemicals.put(chem,conc);
+    }
 
 
 
 
     public static void main (String[] args) {
 
-        DNA hashmap = new DNA();
         String chem1 = "lactate";
         String chem2 = "glucose";
         Double conc1 = 5.2;
         Double conc2 = 3.2;
 
-        addToMap(chem1, conc1);
-
-
-
-
-
-
+        DNA stats = new DNA (chem1, conc1);
+        fillMap(chem2,conc2);
 
 
     }
